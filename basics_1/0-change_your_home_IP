@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# configures an Ubuntu server with localhost 127.0.0.2 facebook.com 8.8.8.8.
+
+cp /etc/hosts /etc/hosts.bak
+# -i option is used to edit files in place
+sudo sed -i '/localhost/d' /etc/hosts
+sudo sed -i '/facebook.com/d' /etc/hosts
+# tee is used to write to a file and redirect output
+echo "127.0.0.2 localhost" | sudo tee -a /etc/hosts > /dev/null
+echo "8.8.8.8 facebook.com" | sudo tee -a /etc/hosts > /dev/null
