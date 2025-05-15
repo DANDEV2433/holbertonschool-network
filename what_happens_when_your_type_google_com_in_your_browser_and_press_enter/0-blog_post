@@ -1,0 +1,107 @@
+🧠 What Happens When You Type https://www.google.com in Your Browser?
+Just a URL? Not quite.
+As a student passionate about web technologies, I wanted to truly understand what happens behind the scenes when we access something as simple as google.com.
+
+This article is a step-by-step journey through the full stack of the modern web — DNS resolution, encrypted communication, firewalls, load balancers, backend logic, and database queries — all the way to rendering the final page in your browser.
+
+🌐 1. DNS Lookup – Who is google.com?
+Before your browser can connect to Google, it needs an IP address. That’s the job of the Domain Name System (DNS)
+
+Steps:
+
+Browser checks local cache
+
+If not found, it queries a DNS resolver (like 8.8.8.8)
+
+The resolver climbs the DNS hierarchy (root → .com → google.com)
+
+It returns the IP address of a Google server
+
+✅ Now your browser knows where to send the request.
+
+🔌 2. TCP/IP – Let’s Talk!
+With the IP address in hand, the browser initiates a TCP connection. This is done via the classic 3-way handshake:
+
+SYN – “Can we talk?”
+
+SYN-ACK – “Sure!”
+
+ACK – “Let’s go!”
+
+TCP ensures the connection is reliable and ordered.
+
+🔐 3. HTTPS & TLS – Make It Secure
+Google doesn’t use plain HTTP. It uses HTTPS, secured by TLS encryption.
+
+The browser checks the SSL certificate
+
+It confirms the server is really Google (and not an attacker)
+
+They exchange keys and establish a secure encrypted tunnel
+
+🔒 From here on, all data is encrypted.
+
+🔥 4. Firewalls - The guards of the network
+The request passes through several firewalls:
+
+Your computer's
+
+Your Internet service provider's
+
+And those of Google's data centres
+
+Their role: to block dangerous traffic, and let the rest through.
+
+⚖️ 5. Load balancer - Distributing traffic
+At data centre level, the request arrives at a load balancer:
+
+It distributes the load between several servers
+
+It chooses according to load, location or other criteria
+
+This allows Google to be fast, available and scalable.
+
+🧾 6. Web server - The gatekeeper
+The request is first managed by a web server (such as Nginx):
+
+If it is a static file (image, CSS), it sends it back.
+
+If not, it forwards the request to an application server
+
+⚙️ 7. Application server - The brain
+The application server processes the request:
+
+Authenticates the user
+
+Applies the business logic (e.g. processing a search)
+
+Accesses the database if necessary
+
+It then returns an HTML, JSON or other response.
+
+🗄️ 8. Database - The long memory
+If data is required (user, history, etc.), the app server queries a database:
+
+MySQL, PostgreSQL, MongoDB, etc.
+
+Isolated from the web, secure, dedicated to storage
+
+This is where all the durable information resides.
+
+🖥️ 9. Rendering the DOM - Display the page
+Once you have received the response, your browser:
+
+Analyses the HTML → creates the DOM
+
+Apply the CSS style sheets → create the CSSOM
+
+Download the files
+
+Display the page with all the elements
+
+👀 And voila, you see Google's homepage. All in a matter of milliseconds.
+
+🧩 Conclusion
+Behind a simple https://www.google.com, there is a complex, secure and high-performance architecture.
+
+Understanding these mechanisms is essential, whether you're a frontend or backend developer or a future SRE engineer.
