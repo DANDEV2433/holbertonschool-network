@@ -1,0 +1,14 @@
+DNS Resolver: Maps www.google.com to an IP address.
+
+Internet: Communication uses port 443 over HTTPS, encrypted with TLS.
+
+Firewall: Filters traffic and allows only necessary ports.
+
+Load Balancer: Distributes requests across multiple web servers.
+
+Web Server: Serves static files (HTML/CSS/JS) or forwards requests to the app server.
+
+Application Server: Handles business logic, queries the database.
+
+Database: Stores persistent data.
+
